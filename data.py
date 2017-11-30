@@ -6,3 +6,5 @@ class persent:
         pass
     def is_OK(self):
         pass
+    def __str__(self):
+        return 'name:'+self.name+',favorite:'+','.join(self.favorite)
