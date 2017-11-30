@@ -16,3 +16,7 @@ class launcher:
         print(self.seat)
     def start(self):
         pass
+    def search_seat(self,w,h):
+        for i in self.seat:
+            if i['w'] == w and i['h'] == h:
+                return i,self.seat.index(i)
