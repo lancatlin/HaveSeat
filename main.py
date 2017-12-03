@@ -8,9 +8,9 @@ class launcher:
             self.h = int(self.h)
             print(self.w,self.h)
             self.people = []
-            for i in file.readlines():
+            for i in file.read().split('\n'):
                 n,p = i.split(':')[0],i.split(':')[1].split(',')
-                self.people.append(person(n,p))
+                self.people.append(person(n,p,self))
         self.people_num = len(self.people)
         self.seat = []
         for i in range(int(self.w)):
