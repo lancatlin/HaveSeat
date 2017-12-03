@@ -1,7 +1,14 @@
 from main import launcher
-main = launcher()
-print(main.search_seat(2,0))
-main.start()
-x = 5
-print(main.people[x].name)
-print(main.people[x].satisfy())
+up = 0
+up_draw = ''
+for i in range(10000):
+    main = launcher()
+    main.start()
+    result = 0
+    for i in main.people:
+        result += i.satisfy()
+    if result > up:
+        up = result
+        up_draw = main.output()
+print(up_draw)
+print(up)
