@@ -26,7 +26,7 @@ class person:
             if i.seat != None and i.name in self.favorite:
                 w,h,iw,ih = self.seat['w'],self.seat['h'],i.seat['w'],i.seat['h']
                 if abs(w-iw) <=1 and abs(h-ih) <= 1:
-                    result += 1
+                    result += 2 - self.favorite.index(i.name)*0.2
         return result
     def __str__(self):
         return 'name:'+self.name+',favorite:'+','.join(self.favorite)+' ,seat: '+str(self.seat['w'])+','+str(self.seat['h'])

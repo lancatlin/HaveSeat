@@ -6,11 +6,12 @@ class launcher:
             self.w,self.h = (file.readline().split('=')[1].split('*'))
             self.w = int(self.w)
             self.h = int(self.h)
-            #print(self.w,self.h)
             self.people = []
             for i in file.read().split('\n'):
-                n,p = i.split(':')[0],i.split(':')[1].split(',')
-                self.people.append(person(n,p,self))
+                if i != '':
+                    s = i.split(':')
+                    n, p = s[0], s[1].split(',')
+                    self.people.append(person(n,p,self))
         self.people_num = len(self.people)
         self.seat = []
         for i in range(int(self.w)):
@@ -34,7 +35,9 @@ class launcher:
             for j in range(self.h):
                 s = self.search_seat(i,j)
                 if s['free']:
-                    result += '| | '
+                    result += '|  | '
+                elif len(s['person'].name) == 1:
+                    result += '| '+s['person'].name+'| '
                 else:
                     result+='|'+s['person'].name+'| '
             result+='\n'

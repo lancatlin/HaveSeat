@@ -1,7 +1,7 @@
 from main import launcher
 up = 0
 up_draw = ''
-for i in range(10000):
+for i in range(100000):
     main = launcher()
     main.start()
     result = 0
